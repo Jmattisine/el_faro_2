@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Faro - Periódico Local</title>
+    
+    <!-- Importación de tipografía externa de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos base para el cuerpo del documento */
+        body {
+            font-family: 'Roboto', sans-serif; /* Nueva tipografía principal */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f5f5f5; /* Fondo gris solicitado */
+            color: #333;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Merriweather', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Estilos para el logo - CORRECCIÓN PRINCIPAL */
+        .logo {
+            width: 250px; /* Ancho fijo más grande */
+            height: auto; /* Mantiene proporción */
+            max-width: 100%; /* Responsivo */
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Efecto hover opcional para el logo */
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Ajuste para el título */
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        /* Estilos para la barra de navegación */
+        nav {
+            background-color: #444;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        /* Estilos para los enlaces de navegación */
+        nav ul li a {
+            color: white;
+            text-decoration: underline;
+            font-weight: normal;
+            transition: all 0.3s ease;
+        }
+
+        /* Efecto hover para los enlaces de navegación */
+        nav ul li a:hover {
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Estilos para el contenido principal */
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Estilos para las secciones */
+        section {
+            display: none;
+        }
+
+        /* Estilos para los artículos - ahora en formato de grilla */
+        article {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Efecto hover para los artículos */
+        article:hover {
+            background-color: #000;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Estilos para las tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        /* Estilos para el footer según requisitos */
+        footer {
+            background-color: #c9d2d0;
+            color: #31231e;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            font-family: 'Merriweather', serif;
+        }
+
+        /* Contenedores multimedia */
+        .media-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Estilos responsivos para video y audio */
+        video, audio {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Estilos para la grilla de artículos usando CSS Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 768px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                width: 180px;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Estilos para títulos principales */
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: #333;
+        }
+
+        /* Mantener color blanco en títulos al hacer hover */
+        article:hover h3 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://i.ibb.co/tw7Rs4Rh/Leonardo-Phoenix-10-Design-a-logo-for-the-newspaper-El-Faro-me-3.jpg" 
+             alt="Logo El Faro" 
+             class="logo">
+        <h1>El Faro - Periódico Local</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#deportes">Deporte</a></li>
+            <li><a href="#negocios">Negocios</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="inicio">
+            <h2>Últimas Noticias</h2>
+            
+            <!-- Contenedor de artículos en grilla -->
+            <div class="articles-grid">
+                <article>
+                    <h3>Inauguran nuevo parque municipal</h3>
+                    <p><strong>Categoría:</strong> Comunidad</p>
+                    <p>El alcalde inauguró ayer el nuevo parque central que contó con una inversión de $2 millones. El espacio incluye áreas verdes, juegos infantiles y una pista para caminar.</p>
+                    <div class="media-container">
+                        <video width="600" controls>
+                            <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                    </div>
+                </article>
+            </div>
+            
+            <h3>Otras Noticias</h3>
+            <table>
+                <tr>
+                    <th>Título</th>
+                    <th>Categoría</th>
+                    <th>Resumen</th>
+                </tr>
+                <tr>
+                    <td>Nueva biblioteca pública</td>
+                    <td>Educación</td>
+                    <td>La ciudad estrenará biblioteca con más de 10,000 ejemplares disponibles para préstamo.</td>
+                </tr>
+                <tr>
+                    <td>Aumento en tarifas de transporte</td>
+                    <td>Transporte</td>
+                    <td>A partir del próximo mes, el pasaje de bus urbano aumentará un 10% según anuncio la municipalidad.</td>
+                </tr>
+                <tr>
+                    <td>Festival gastronómico este fin de semana</td>
+                    <td>Cultura</td>
+                    <td>Los mejores restaurantes de la ciudad participarán en el festival que se realizará en la plaza principal.</td>
+                </tr>
+            </table>
+            
+            <div class="media-container">
+                <h3>Escuche nuestro podcast diario</h3>
+                <audio controls>
+                    <source src="https://samplelib.com/lib/preview/mp3/sample-3s.mp3" type="audio/mp3">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+        </section>
+        
+        <section id="deportes">
+            <h2>Noticias de Deportes</h2>
+            
+            <!-- Contenedor de artículos en grilla -->
+            <div class="articles-grid">
+                <article>
+                    <h3>Equipo local clasifica a torneo nacional</h3>
+                    <p><strong>Categoría:</strong> Fútbol</p>
+                    <p>El equipo de fútbol de la ciudad logró su pase al torneo nacional tras vencer 2-1 en el partido de clasificación.</p>
+                    <img src="https://www.municipalidadvicuna.cl/wp-content/uploads/2021/10/copa-milo-1.png" alt="Partido de fútbol" style="width:100%; max-width:600px;">
+                </article>
+                
+                <article>
+                    <h3>Maratonista local gana competencia regional</h3>
+                    <p><strong>Categoría:</strong> Atletismo</p>
+                    <p>Juan Pérez completó el maratón en 2 horas 15 minutos, estableciendo nuevo récord regional.</p>
+                </article>
+                
+                <article>
+                    <h3>Inauguran nueva piscina olímpica</h3>
+                    <p><strong>Categoría:</strong> Natación</p>
+                    <p>Las instalaciones estarán abiertas al público a partir del próximo lunes.</p>
+                </article>
+            </div>
+            
+            <h3>Otras Noticias Deportivas</h3>
+            <table>
+                <tr>
+                    <th>Título</th>
+                    <th>Categoría</th>
+                    <th>Resumen</th>
+                </tr>
+                <tr>
+                    <td>Selección juvenil de básquetbol inicia preparación</td>
+                    <td>Básquetbol</td>
+                    <td>El equipo se prepara para el campeonato sudamericano que se realizará en noviembre.</td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="negocios">
+            <h2>Noticias de Negocios</h2>
+            
+            <!-- Contenedor de artículos en grilla -->
+            <div class="articles-grid">
+                <article>
+                    <h3>Nueva startup local recibe inversión millonaria</h3>
+                    <p><strong>Categoría:</strong> Emprendimiento</p>
+                    <p>TechSolutions, empresa fundada por jóvenes de la ciudad, recibió $5 millones de dólares en financiamiento de capital de riesgo.</p>
+                    <img src="https://www.beedigital.es/wp-content/uploads/2020/09/las-diferencias-entre-una-startup-y-una-pequena-empresa-1.jpg" alt="Startup local" style="width:100%; max-width:600px;">
+                </article>
+                
+                <article>
+                    <h3>Inauguran nuevo centro comercial</h3>
+                    <p><strong>Categoría:</strong> Comercio</p>
+                    <p>Con una inversión de $50 millones, el nuevo centro comercial abrirá sus puertas el próximo mes con más de 100 tiendas.</p>
+                </article>
+                
+                <article>
+                    <h3>Taller para emprendedores este sábado</h3>
+                    <p><strong>Categoría:</strong> Capacitación</p>
+                    <p>La cámara de comercio organiza un taller gratuito sobre marketing digital para pequeños negocios.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 El Faro - Todos los derechos reservados</p>
+        <p>Contacto: info@elfaro.com | Teléfono: 555-1234</p>
+    </footer>
+
+    <script>
+        // Función para mostrar la sección seleccionada y ocultar las demás
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                
+                // Ocultar todas las secciones
+                document.querySelectorAll('main section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Mostrar la sección seleccionada
+                document.getElementById(targetId).style.display = 'block';
+                
+                // Scroll suave hacia la sección
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Mostrar la sección de inicio por defecto
+        document.getElementById('inicio').style.display = 'block';
+    </script>
+</body>
+</html>
